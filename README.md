@@ -9,8 +9,6 @@
   </p>
 
   <p>
-    <a href="https://culasss.github.io/InLove-Ecommerce/">Acessar demonstração</a>
-    |
     <a href="#funcionalidades">Funcionalidades</a>
     |
     <a href="#tecnologias">Tecnologias</a>
@@ -140,13 +138,6 @@ Resultado esperado:
 - Build de produção gerado em `in-love-barbara-main/dist`.
 - Deploy automático pelo GitHub Actions para GitHub Pages.
 
-## Demonstração
-
-A versão publicada está disponível em:
-
-**https://culasss.github.io/InLove-Ecommerce/**
-
----
 
 <div align="center">
   <strong>InLove Ecommerce</strong><br />
