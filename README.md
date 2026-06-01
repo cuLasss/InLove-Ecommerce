@@ -4,18 +4,18 @@
   <h1>InLove Ecommerce</h1>
 
   <p>
-    Plataforma web para gestao comercial de moda intima, reunindo vendas, estoque,
-    consignacao, atacado, financeiro e notas fiscais em uma experiencia unica.
+    Plataforma web para gestão comercial de moda íntima, reunindo vendas, estoque,
+    consignação, atacado, financeiro e notas fiscais em uma experiência única.
   </p>
 
   <p>
-    <a href="https://culasss.github.io/InLove-Ecommerce/">Acessar demonstracao</a>
+    <a href="https://culasss.github.io/InLove-Ecommerce/">Acessar demonstração</a>
     |
     <a href="#funcionalidades">Funcionalidades</a>
     |
     <a href="#tecnologias">Tecnologias</a>
     |
-    <a href="#execucao-local">Execucao local</a>
+    <a href="#execução-local">Execução local</a>
   </p>
 
   <p>
@@ -28,68 +28,68 @@
 
 ---
 
-## Visao geral
+## Visão geral
 
-O **InLove Ecommerce** e um sistema administrativo criado para centralizar a operacao de uma loja de moda intima. A aplicacao organiza rotinas de venda, cadastro, estoque, consignacao, atacado, financeiro e apoio fiscal em uma interface responsiva, com foco em uso diario por equipes comerciais.
+O **InLove Ecommerce** é um sistema administrativo criado para centralizar a operação de uma loja de moda íntima. A aplicação organiza rotinas de venda, cadastro, estoque, consignação, atacado, financeiro e apoio fiscal em uma interface responsiva, com foco em uso diário por equipes comerciais.
 
-O projeto foi estruturado como uma entrega completa de produto: separacao clara de modulos, componentes reutilizaveis, integracao preparada para Supabase, dados de demonstracao higienizados e pipeline de publicacao via GitHub Pages.
+O projeto foi estruturado como uma entrega completa de produto: separação clara de módulos, componentes reutilizáveis, integração preparada para Supabase, dados de demonstração higienizados e pipeline de publicação via GitHub Pages.
 
 ## Funcionalidades
 
-| Modulo | Recursos principais |
+| Módulo | Recursos principais |
 | --- | --- |
-| **Varejo** | Carrinho, itens de venda, pagamentos, historico, devolucoes e relatorios. |
-| **Atacado** | Vendas por cliente, controle de pagamentos, devolucoes, analises e emissao auxiliar de documentos. |
-| **Consignacao** | Criacao de folhas, controle de lotes, comissoes, devolucoes, pagamentos e acertos. |
-| **Produtos e estoque** | Cadastro de produtos, marcas, categorias, fornecedores, estoque minimo, etiquetas e QR Code. |
-| **Clientes** | Cadastro, edicao, filtros por tipo de atendimento e apoio a aniversariantes. |
-| **Financeiro** | Visao de pagamentos, fechamento, consolidacao e acompanhamento operacional. |
-| **Notas fiscais** | Importacao de XML, reconciliacao de produtos, visualizacao, exportacao e apoio a validacao. |
-| **Scanner** | Leitura de codigos para acelerar vendas, devolucoes e movimentacoes. |
+| **Varejo** | Carrinho, itens de venda, pagamentos, histórico, devoluções e relatórios. |
+| **Atacado** | Vendas por cliente, controle de pagamentos, devoluções, análises e emissão auxiliar de documentos. |
+| **Consignação** | Criação de folhas, controle de lotes, comissões, devoluções, pagamentos e acertos. |
+| **Produtos e estoque** | Cadastro de produtos, marcas, categorias, fornecedores, estoque mínimo, etiquetas e QR Code. |
+| **Clientes** | Cadastro, edição, filtros por tipo de atendimento e apoio a aniversariantes. |
+| **Financeiro** | Visão de pagamentos, fechamento, consolidação e acompanhamento operacional. |
+| **Notas fiscais** | Importação de XML, reconciliação de produtos, visualização, exportação e apoio à validação. |
+| **Scanner** | Leitura de códigos para acelerar vendas, devoluções e movimentações. |
 
-## Experiencia
+## Experiência
 
 - Interface responsiva para desktop e telas menores.
 - Componentes consistentes com shadcn/ui e Radix UI.
-- Carregamento segmentado por rotas e modulos.
+- Carregamento segmentado por rotas e módulos.
 - Estados de carregamento, dialogs, drawers, filtros e controles de busca.
 - Fluxos pensados para rotina operacional, com telas densas e objetivas.
 
 ## Tecnologias
 
 - **React 18** para a interface.
-- **TypeScript** para tipagem e manutencao.
+- **TypeScript** para tipagem e manutenção.
 - **Vite** para desenvolvimento e build.
-- **Supabase** para autenticacao, banco e storage.
-- **TanStack Query** para sincronizacao de dados.
+- **Supabase** para autenticação, banco e storage.
+- **TanStack Query** para sincronização de dados.
 - **Tailwind CSS** e **shadcn/ui** para o design system.
-- **React Router** para navegacao.
-- **jsPDF**, XML parser e utilitarios fiscais para documentos e apoio a NF-e.
+- **React Router** para navegação.
+- **jsPDF**, XML parser e utilitários fiscais para documentos e apoio à NF-e.
 
 ## Estrutura do projeto
 
 ```text
 .
-|-- .github/workflows/          # Deploy automatico no GitHub Pages
+|-- .github/workflows/          # Deploy automático no GitHub Pages
 |-- in-love-barbara-main/
-|   |-- docs/                   # Notas tecnicas e seguranca
-|   |-- public/                 # Assets publicos
-|   |-- scripts/                # Scripts SQL e utilitarios
+|   |-- docs/                   # Notas técnicas e segurança
+|   |-- public/                 # Assets públicos
+|   |-- scripts/                # Scripts SQL e utilitários
 |   |-- src/
-|   |   |-- components/         # Componentes por dominio
+|   |   |-- components/         # Componentes por domínio
 |   |   |-- contexts/           # Contextos globais
-|   |   |-- data/               # Dados anonimizados de demonstracao
+|   |   |-- data/               # Dados anonimizados de demonstração
 |   |   |-- hooks/              # Hooks de dados e UI
 |   |   |-- integrations/       # Clientes externos
-|   |   |-- lib/                # Servicos, adapters e utilitarios
-|   |   `-- pages/              # Paginas da aplicacao
-|   `-- supabase/               # Configuracoes e migrations
+|   |   |-- lib/                # Serviços, adapters e utilitários
+|   |   `-- pages/              # Páginas da aplicação
+|   `-- supabase/               # Configurações e migrations
 `-- README.md
 ```
 
-## Seguranca e configuracao
+## Segurança e configuração
 
-Este snapshot publico foi preparado sem credenciais reais, certificados, XMLs fiscais, dados de clientes ou arquivos de ambiente.
+Este snapshot público foi preparado sem credenciais reais, certificados, XMLs fiscais, dados de clientes ou arquivos de ambiente.
 
 Para conectar a um backend real, crie `in-love-barbara-main/.env.local` a partir de `in-love-barbara-main/.env.example`:
 
@@ -98,11 +98,11 @@ VITE_SUPABASE_URL=
 VITE_SUPABASE_ANON_KEY=
 ```
 
-> Variaveis `VITE_*` sao incluidas no bundle do navegador. Nunca coloque `service_role`, tokens fiscais, senhas administrativas, certificados ou chaves privadas no frontend.
+> Variáveis `VITE_*` são incluídas no bundle do navegador. Nunca coloque `service_role`, tokens fiscais, senhas administrativas, certificados ou chaves privadas no frontend.
 
-Operacoes administrativas devem ser executadas em ambiente server-side, como Supabase Edge Functions ou backend proprio. Antes de producao, revise as politicas de RLS, permissoes de storage e fluxo fiscal.
+Operações administrativas devem ser executadas em ambiente server-side, como Supabase Edge Functions ou backend próprio. Antes de produção, revise as políticas de RLS, permissões de storage e fluxo fiscal.
 
-## Execucao local
+## Execução local
 
 ```bash
 git clone https://github.com/cuLasss/InLove-Ecommerce.git
@@ -111,7 +111,7 @@ npm install
 npm run dev
 ```
 
-O app ficara disponivel em:
+O app ficará disponível em:
 
 ```text
 http://localhost:8080
@@ -124,7 +124,7 @@ cd in-love-barbara-main
 npm run build
 ```
 
-## Validacao
+## Validação
 
 Comandos usados para validar este snapshot:
 
@@ -136,13 +136,13 @@ npm run build
 
 Resultado esperado:
 
-- Auditoria de dependencias sem vulnerabilidades moderadas ou criticas.
-- Build de producao gerado em `in-love-barbara-main/dist`.
-- Deploy automatico pelo GitHub Actions para GitHub Pages.
+- Auditoria de dependências sem vulnerabilidades moderadas ou críticas.
+- Build de produção gerado em `in-love-barbara-main/dist`.
+- Deploy automático pelo GitHub Actions para GitHub Pages.
 
-## Demonstracao
+## Demonstração
 
-A versao publicada esta disponivel em:
+A versão publicada está disponível em:
 
 **https://culasss.github.io/InLove-Ecommerce/**
 
@@ -150,5 +150,5 @@ A versao publicada esta disponivel em:
 
 <div align="center">
   <strong>InLove Ecommerce</strong><br />
-  Gestao comercial, estoque, consignacao e vendas em uma unica plataforma.
+  Gestão comercial, estoque, consignação e vendas em uma única plataforma.
 </div>

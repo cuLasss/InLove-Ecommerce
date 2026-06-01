@@ -1,6 +1,6 @@
 # InLove Ecommerce App
 
-Aplicacao React/TypeScript para gestao de ecommerce e loja fisica, com modulos de produtos, clientes, vendas, consignacao, atacado, financeiro e notas fiscais.
+Aplicação React/TypeScript para gestão de ecommerce e loja física, com módulos de produtos, clientes, vendas, consignação, atacado, financeiro e notas fiscais.
 
 ## Requisitos
 
@@ -8,7 +8,7 @@ Aplicacao React/TypeScript para gestao de ecommerce e loja fisica, com modulos d
 - npm
 - Projeto Supabase configurado para uso real
 
-## Instalacao
+## Instalação
 
 ```bash
 npm install
@@ -16,14 +16,14 @@ npm install
 
 ## Ambiente
 
-Copie `.env.example` para `.env.local` e preencha apenas valores publicos do frontend:
+Copie `.env.example` para `.env.local` e preencha apenas valores públicos do frontend:
 
 ```bash
 VITE_SUPABASE_URL=
 VITE_SUPABASE_ANON_KEY=
 ```
 
-Nao use `service_role` no frontend. Tokens fiscais, certificados, senhas administrativas e outros segredos devem ficar fora do navegador, em backend proprio ou Supabase Edge Functions.
+Não use `service_role` no frontend. Tokens fiscais, certificados, senhas administrativas e outros segredos devem ficar fora do navegador, em backend próprio ou Supabase Edge Functions.
 
 ## Desenvolvimento
 
@@ -39,16 +39,16 @@ npm run build
 
 ## Deploy no GitHub Pages
 
-O workflow da raiz do repositorio roda `npm ci` e `npm run build` dentro desta pasta. A base publica e detectada automaticamente pelo nome do repositorio no GitHub Actions.
+O workflow da raiz do repositório roda `npm ci` e `npm run build` dentro desta pasta. A base pública é detectada automaticamente pelo nome do repositório no GitHub Actions.
 
 ## Dados de exemplo
 
-Os arquivos em `src/data/*.json` sao dados anonimizados para demo local. Eles nao devem ser substituidos por dados reais de clientes, vendas, notas fiscais ou colaboradores em repositorios publicos.
+Os arquivos em `src/data/*.json` são dados anonimizados para demo local. Eles não devem ser substituídos por dados reais de clientes, vendas, notas fiscais ou colaboradores em repositórios públicos.
 
-## Checklist antes de producao
+## Checklist antes de produção
 
 - Configurar Supabase Auth.
 - Revisar e ativar RLS nas tabelas.
-- Criar bucket de imagens com politicas adequadas.
-- Mover operacoes administrativas para backend/server-side.
-- Configurar emissao fiscal apenas em ambiente seguro.
+- Criar bucket de imagens com políticas adequadas.
+- Mover operações administrativas para backend/server-side.
+- Configurar emissão fiscal apenas em ambiente seguro.
