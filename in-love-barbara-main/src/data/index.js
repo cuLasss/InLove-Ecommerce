@@ -1,4 +1,4 @@
-// Sanitized demo data for local development and portfolio builds.
+// Sanitized demo data for local development and public builds.
 // Do not replace these files with real client, fiscal or sales data in public repositories.
 
 export { default as categories } from './categories.json'
