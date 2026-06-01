@@ -1,0 +1,16 @@
+{
+  "name": "IN LOVE - Sistema de Gestão",
+  "short_name": "IN LOVE",
+  "description": "Sistema completo de gestão para moda íntima - vendas, estoque, caixa e relatórios",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

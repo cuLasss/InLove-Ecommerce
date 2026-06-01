@@ -1,0 +1,3205 @@
+/* Importar estilos específicos do atacado */
+@import './styles/atacado.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* IN LOVE Design System - Moda íntima gestão
+All colors MUST be HSL. Based on sand/gold palette.
+*/
+
+@layer base {
+  :root {
+    /* Sand palette base */
+    --background: 31 33% 97%; /* #F8F4ED */
+    --foreground: 0 0% 17%; /* #2B2B2B */
+
+    --card: 31 33% 97%; /* #F8F4ED */
+    --card-foreground: 0 0% 17%;
+
+    --popover: 31 33% 97%;
+    --popover-foreground: 0 0% 17%;
+
+    /* Gold primary - darkened for WCAG AA contrast */
+    --primary: 40 55% 42%; /* Darker gold for 4.5:1 contrast with white */
+    --primary-foreground: 31 33% 97%;
+    --primary-hover: 40 60% 38%; /* Slightly darker on hover */
+
+    /* Sand secondary */
+    --secondary: 31 20% 89%; /* #E6DCCB */
+    --secondary-foreground: 0 0% 17%;
+
+    /* Muted sand tones - darkened for better contrast */
+    --muted: 31 20% 89%; /* #E6DCCB */
+    --muted-foreground: 25 8% 45%; /* Darker for WCAG AA compliance */
+
+    /* Accent brown */
+    --accent: 33 44% 34%; /* #7A5931 */
+    --accent-foreground: 31 33% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 31 33% 97%;
+
+    --border: 31 20% 89%; /* #E6DCCB */
+    --input: 31 20% 89%;
+    --ring: 40 55% 42%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar with sand theme */
+    --sidebar-background: 31 33% 97%; /* #F8F4ED */
+    --sidebar-foreground: 0 0% 17%;
+    --sidebar-primary: 40 55% 42%; /* Match darkened primary for consistency */
+    --sidebar-primary-foreground: 31 33% 97%;
+    --sidebar-accent: 31 20% 89%; /* Sand accent */
+    --sidebar-accent-foreground: 0 0% 17%;
+    --sidebar-border: 31 20% 89%;
+    --sidebar-ring: 40 55% 42%;
+
+    /* Custom gradients and effects */
+    --gradient-gold: linear-gradient(135deg, hsl(40 55% 42%), hsl(40 60% 38%));
+    --gradient-sand: linear-gradient(180deg, hsl(31 33% 97%), hsl(31 20% 89%));
+    --shadow-soft: 0 4px 16px hsl(40 55% 42% / 0.1);
+    --shadow-card: 0 2px 8px hsl(0 0% 0% / 0.05);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer components {
+  /* Custom component styles */
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  .gradient-sand {
+    background: var(--gradient-sand);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Responsive utilities */
+  .mobile-stack > * + * {
+    margin-top: 1rem;
+  }
+
+  .mobile-full {
+    @apply w-full;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-full {
+      @apply w-auto;
+    }
+  }
+
+  /* Responsive grid utilities */
+  .responsive-grid {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  @media (min-width: 320px) {
+    .responsive-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 375px) {
+    .responsive-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  @media (min-width: 425px) {
+    .responsive-grid {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-grid {
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .responsive-grid {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+  }
+
+  /* Responsive text sizes */
+  .responsive-text-xs {
+    @apply text-xs;
+  }
+
+  .responsive-text-sm {
+    @apply text-sm;
+  }
+
+  .responsive-text-base {
+    @apply text-base;
+  }
+
+  .responsive-text-lg {
+    @apply text-lg;
+  }
+
+  .responsive-text-xl {
+    @apply text-xl;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-text-xs { @apply text-sm; }
+    .responsive-text-sm { @apply text-base; }
+    .responsive-text-base { @apply text-lg; }
+    .responsive-text-lg { @apply text-xl; }
+    .responsive-text-xl { @apply text-2xl; }
+  }
+
+  /* Touch improvements */
+  @media (hover: none) and (pointer: coarse) {
+    .hover\:bg-muted\/50:hover {
+      background-color: transparent;
+    }
+    
+    button {
+      min-height: 44px;
+    }
+    
+    input, textarea, select {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+  }
+
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Better touch targets */
+  @media (max-width: 768px) {
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Responsive spacing */
+  .responsive-padding {
+    @apply p-2;
+  }
+
+  @media (min-width: 375px) {
+    .responsive-padding {
+      @apply p-3;
+    }
+  }
+
+  @media (min-width: 425px) {
+    .responsive-padding {
+      @apply p-4;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-padding {
+      @apply p-6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-padding {
+      @apply p-8;
+    }
+  }
+
+  /* Responsive margins */
+  .responsive-margin {
+    @apply m-2;
+  }
+
+  @media (min-width: 375px) {
+    .responsive-margin {
+      @apply m-3;
+    }
+  }
+
+  @media (min-width: 425px) {
+    .responsive-margin {
+      @apply m-4;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-margin {
+      @apply m-6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-margin {
+      @apply m-8;
+    }
+  }
+
+  /* Global Scanner Modal - responsividade 768px para baixo */
+  @media (max-width: 768px) {
+    .global-scanner-label-modal {
+      width: 96vw !important;
+      max-width: 560px !important;
+      overflow-x: hidden !important;
+    }
+    .global-scanner-label-modal .label-modal-layout {
+      flex-direction: column !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .global-scanner-label-modal {
+      width: 98vw !important;
+      max-width: 420px !important;
+      padding-left: 14px !important;
+      padding-right: 14px !important;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .global-scanner-label-modal {
+      width: 100vw !important;
+      max-width: 350px !important;
+      border-radius: 0.9rem !important;
+    }
+  }
+
+  /* Consignado - Responsividade para telas <= 860px */
+  @media (max-width: 860px) {
+    /* Container principal do GerenciarFolha */
+    .consignado-gerenciar-folha {
+      width: 100% !important;
+      max-width: 100vw !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Header da Folha - primeiro card branco */
+    .consignado-gerenciar-folha > div:first-child {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Card de Status (badge Rascunho) */
+    .consignado-status-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+    }
+
+    /* CardContent dentro do Card de Status */
+    .consignado-status-content {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Container do badge e texto de status - permitir quebra */
+    .consignado-status-container {
+      flex-wrap: wrap !important;
+      gap: 0.5rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Texto de descrição do status - quebrar linha */
+    .consignado-status-text {
+      white-space: normal !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      flex: 1 1 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Badge de status - manter em uma linha */
+    .consignado-status-badge {
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    /* Header com flex-col/xl:flex-row */
+    .consignado-gerenciar-folha .flex.flex-col.xl\\:flex-row {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Valores e botões no header */
+    .consignado-gerenciar-folha .bg-slate-50 {
+      min-width: 0 !important;
+      width: auto !important;
+      max-width: 100% !important;
+    }
+
+    /* Container de ações do header (badge + botão entregar) */
+    .consignado-header-actions {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      min-width: 0 !important;
+      flex-wrap: wrap !important;
+    }
+
+    .consignado-deliver-button {
+      max-width: calc(100% - 0.5rem) !important;
+      box-sizing: border-box !important;
+      min-width: 0 !important;
+      flex-shrink: 1 !important;
+    }
+
+    /* Garantir que todos os elementos filhos não ultrapassem */
+    .consignado-gerenciar-folha * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  /* Botão Entregar Lote - Responsividade para evitar corte em todas as resoluções */
+  .consignado-header-actions {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+  }
+
+  .consignado-deliver-button {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    width: auto !important;
+  }
+
+  .consignado-deliver-button span {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  /* Ajustes intermediários entre 495px e 860px */
+  @media (min-width: 496px) and (max-width: 860px) {
+    .consignado-header-actions {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex-wrap: wrap !important;
+      gap: 0.75rem !important;
+    }
+
+    .consignado-deliver-button {
+      max-width: 100% !important;
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+    }
+
+    .consignado-status-badge-header {
+      flex-shrink: 0 !important;
+    }
+  }
+
+  /* Ajustes para telas muito pequenas (<= 495px) */
+  @media (max-width: 495px) {
+    .consignado-gerenciar-folha {
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+
+    .consignado-gerenciar-folha > div:first-child {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+      border-radius: 1rem !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Container dos valores (Itens e Valor Total) */
+    .consignado-gerenciar-folha > div:first-child > div > div:last-child {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    .consignado-gerenciar-folha > div:first-child > div > div:last-child > div:first-child {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      gap: 0.5rem !important;
+    }
+
+    .consignado-gerenciar-folha > div:first-child .bg-slate-50 {
+      min-width: 0 !important;
+      width: calc(50% - 0.25rem) !important;
+      max-width: calc(50% - 0.25rem) !important;
+      flex: 1 1 auto !important;
+      padding: 0.625rem !important;
+    }
+
+    /* Header actions - garantir que o botão não corte */
+    .consignado-header-actions {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 0.75rem !important;
+      margin-top: 0.75rem !important;
+    }
+
+    .consignado-status-badge-header {
+      width: 100% !important;
+      max-width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+      display: flex !important;
+    }
+
+    .consignado-deliver-button {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      justify-content: center !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-deliver-button span {
+      white-space: nowrap !important;
+      overflow: visible !important;
+      text-overflow: clip !important;
+    }
+  }
+
+  /* Ajustes adicionais para telas muito pequenas (<= 480px) */
+  @media (max-width: 480px) {
+    .consignado-gerenciar-folha {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+    }
+
+    .consignado-gerenciar-folha > div:first-child {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+      border-radius: 1rem !important;
+    }
+
+    .consignado-status-card {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+    }
+
+    .consignado-status-content {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+    }
+  }
+
+  /* Adicionar Produto Modal - Responsividade para telas <= 870px */
+  @media (max-width: 870px) {
+    /* Container principal */
+    .consignado-adicionar-produto {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding: 1rem !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Espaçamento interno */
+    .consignado-adicionar-produto > div {
+      gap: 1rem !important;
+    }
+
+    /* Espaçamento entre campos */
+    .consignado-adicionar-produto .space-y-4 {
+      gap: 0.875rem !important;
+    }
+
+    /* Header do modal */
+    .consignado-adicionar-produto .text-center {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Título */
+    .consignado-adicionar-produto h2 {
+      font-size: 1rem !important;
+      line-height: 1.3 !important;
+      word-break: break-word !important;
+      white-space: normal !important;
+    }
+
+    /* Texto de instrução */
+    .consignado-adicionar-produto p {
+      font-size: 0.75rem !important;
+      line-height: 1.4 !important;
+      word-break: break-word !important;
+      white-space: normal !important;
+    }
+
+    /* Campos de entrada */
+    .consignado-search-input-container,
+    .consignado-code-input-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-search-input,
+    .consignado-code-input {
+      width: 100% !important;
+      max-width: 100% !important;
+      font-size: 0.875rem !important;
+      padding-left: 0.75rem !important;
+      padding-right: 2.5rem !important;
+      box-sizing: border-box !important;
+      height: 2.75rem !important;
+    }
+
+    .consignado-search-input-container .absolute {
+      right: 0.75rem !important;
+      pointer-events: none !important;
+    }
+
+    /* Ajuste específico para campo de código (sem ícone) */
+    .consignado-code-input {
+      padding-right: 0.75rem !important;
+    }
+
+    /* Botões de ação */
+    .consignado-action-buttons {
+      width: 100% !important;
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+    }
+
+    .consignado-adicionar-produto .consignado-scanner-button,
+    .consignado-adicionar-produto .consignado-add-button {
+      width: 100% !important;
+      min-width: 100% !important;
+      max-width: 100% !important;
+      font-size: 0.875rem !important;
+      padding: 0.625rem 1rem !important;
+      height: 2.75rem !important;
+      white-space: nowrap !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    /* Container de dicas visuais */
+    .consignado-tips-container {
+      padding: 0.75rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Itens de dica */
+    .consignado-tip-item {
+      width: 100% !important;
+      max-width: 100% !important;
+      align-items: flex-start !important;
+      gap: 0.625rem !important;
+    }
+
+    .consignado-tip-icon {
+      flex-shrink: 0 !important;
+      width: 1.25rem !important;
+      height: 1.25rem !important;
+      margin-top: 0.125rem !important;
+    }
+
+    .consignado-tip-icon svg {
+      width: 0.875rem !important;
+      height: 0.875rem !important;
+    }
+
+    .consignado-tip-text {
+      font-size: 0.75rem !important;
+      line-height: 1.4 !important;
+      word-break: break-word !important;
+      white-space: normal !important;
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    /* Resultados da busca */
+    .consignado-adicionar-produto .bg-white.border {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-adicionar-produto .bg-white.border .flex.items-center {
+      flex-wrap: wrap !important;
+      gap: 0.5rem !important;
+      width: 100% !important;
+    }
+
+    .consignado-adicionar-produto .bg-white.border .flex-1 {
+      min-width: 0 !important;
+      width: 100% !important;
+    }
+
+    .consignado-adicionar-produto .bg-white.border .text-right {
+      text-align: left !important;
+      width: 100% !important;
+      margin-top: 0.5rem !important;
+    }
+
+    /* Status de processamento */
+    .consignado-adicionar-produto .bg-blue-50 {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0.75rem !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Garantir que todos os elementos filhos não ultrapassem */
+    .consignado-adicionar-produto * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  /* Ajustes adicionais para telas muito pequenas (<= 480px) */
+  @media (max-width: 480px) {
+    .consignado-adicionar-produto {
+      padding: 0.75rem !important;
+      border-radius: 1rem !important;
+    }
+
+    .consignado-adicionar-produto h2 {
+      font-size: 0.875rem !important;
+    }
+
+    .consignado-adicionar-produto p {
+      font-size: 0.7rem !important;
+    }
+
+    .consignado-search-input,
+    .consignado-code-input {
+      font-size: 0.8125rem !important;
+      padding-left: 0.625rem !important;
+      padding-right: 2.25rem !important;
+      height: 2.5rem !important;
+    }
+
+    .consignado-code-input {
+      padding-right: 0.625rem !important;
+    }
+
+    .consignado-search-input-container .absolute {
+      right: 0.625rem !important;
+      width: 0.875rem !important;
+      height: 0.875rem !important;
+    }
+
+    .consignado-adicionar-produto .consignado-scanner-button,
+    .consignado-adicionar-produto .consignado-add-button {
+      width: 100% !important;
+      min-width: 100% !important;
+      flex: 1 1 100% !important;
+      font-size: 0.8125rem !important;
+      padding: 0.625rem 0.875rem !important;
+      height: 2.5rem !important;
+    }
+
+    .consignado-tips-container {
+      padding: 0.625rem !important;
+      gap: 0.5rem !important;
+    }
+
+    .consignado-tip-item {
+      gap: 0.5rem !important;
+    }
+
+    .consignado-tip-icon {
+      width: 1.125rem !important;
+      height: 1.125rem !important;
+    }
+
+    .consignado-tip-icon svg {
+      width: 0.75rem !important;
+      height: 0.75rem !important;
+    }
+
+    .consignado-tip-text {
+      font-size: 0.7rem !important;
+      line-height: 1.3 !important;
+    }
+  }
+
+  /* Itens em Rascunho - Responsividade para telas <= 938px */
+  /* Esconder tabela e mostrar cards abaixo de 939px */
+  @media (max-width: 938px) {
+    /* Esconder tabela abaixo de 938px */
+    .consignado-draft-table-container {
+      display: none !important;
+    }
+
+    /* Mostrar cards abaixo de 938px */
+    .consignado-draft-cards {
+      display: block !important;
+    }
+
+    /* Garantir que cards não causem overflow */
+    .consignado-draft-cards {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  /* Mostrar tabela acima de 939px */
+  @media (min-width: 939px) {
+    .consignado-draft-table-container {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: visible !important;
+    }
+
+    .consignado-draft-cards {
+      display: none !important;
+    }
+
+    /* Garantir que a tabela não ultrapasse */
+    .consignado-draft-table {
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: auto !important;
+    }
+
+    .consignado-draft-table th,
+    .consignado-draft-table td {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-draft-table td:first-child {
+      max-width: 30% !important;
+      min-width: 0 !important;
+    }
+  }
+
+  /* Ajustes gerais para telas menores */
+  @media (max-width: 1023px) {
+    /* Container principal - SEM scroll horizontal */
+    .consignado-itens-rascunho {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      box-sizing: border-box !important;
+      overflow: visible !important;
+      position: relative !important;
+    }
+
+    /* Garantir que o wrapper pai também não ultrapasse */
+    .consignado-gerenciar-folha .consignado-itens-rascunho {
+      max-width: 100% !important;
+    }
+
+    /* Header do componente */
+    .consignado-itens-rascunho > div:first-child {
+      padding: 0.875rem 1rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Flex container do header */
+    .consignado-itens-rascunho > div:first-child > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 0.75rem !important;
+    }
+
+    /* Título e informações do header */
+    .consignado-itens-rascunho > div:first-child > div > div:first-child {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    /* Botão Salvar Itens */
+    .consignado-itens-rascunho > div:first-child button {
+      width: 100% !important;
+      max-width: 100% !important;
+      justify-content: center !important;
+    }
+
+    /* Container interno */
+    .consignado-itens-rascunho > div:last-child {
+      padding: 1rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Alert de aviso */
+    .consignado-itens-rascunho .border-orange-200 {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0.75rem !important;
+      box-sizing: border-box !important;
+      margin-bottom: 1rem !important;
+    }
+
+    .consignado-itens-rascunho .border-orange-200 p {
+      font-size: 0.75rem !important;
+      line-height: 1.4 !important;
+      word-break: break-word !important;
+      white-space: normal !important;
+    }
+
+    /* Container da tabela - SEM overflow horizontal */
+    .consignado-draft-table-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: visible !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    /* Tabela - Remover min-width, usar largura responsiva */
+    .consignado-draft-table {
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: auto !important;
+    }
+
+    /* Células da tabela - Ajustar para não ultrapassar */
+    .consignado-draft-table th,
+    .consignado-draft-table td {
+      padding: 0.5rem 0.375rem !important;
+      font-size: 0.8125rem !important;
+      vertical-align: middle !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+
+    /* Coluna de produto */
+    .consignado-draft-table th:first-child,
+    .consignado-draft-table td:first-child {
+      max-width: 35% !important;
+      min-width: 0 !important;
+    }
+
+    .consignado-draft-table td:first-child div {
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      min-width: 0 !important;
+    }
+
+    /* Colunas de preço e subtotal */
+    .consignado-draft-table th:nth-child(2),
+    .consignado-draft-table td:nth-child(2),
+    .consignado-draft-table th:nth-child(4),
+    .consignado-draft-table td:nth-child(4) {
+      white-space: nowrap !important;
+      width: auto !important;
+      min-width: 0 !important;
+    }
+
+    /* Coluna de quantidade */
+    .consignado-draft-table th:nth-child(3),
+    .consignado-draft-table td:nth-child(3) {
+      min-width: 0 !important;
+      max-width: 25% !important;
+    }
+
+    /* Container de controle de quantidade */
+    .consignado-quantity-control {
+      flex-wrap: wrap !important;
+      gap: 0.5rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Input de quantidade */
+    .consignado-qty-input {
+      width: 3rem !important;
+      min-width: 3rem !important;
+      max-width: 3rem !important;
+      font-size: 0.75rem !important;
+      padding: 0.25rem !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Botões de quantidade */
+    .consignado-qty-button {
+      padding: 0.25rem !important;
+      min-width: 1.75rem !important;
+      height: 1.75rem !important;
+      flex-shrink: 0 !important;
+    }
+
+    .consignado-qty-button svg {
+      width: 0.75rem !important;
+      height: 0.75rem !important;
+    }
+
+    /* Coluna de ações */
+    .consignado-draft-table th:last-child,
+    .consignado-draft-table td:last-child {
+      width: auto !important;
+      min-width: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    .consignado-draft-table td:last-child button {
+      padding: 0.25rem !important;
+      min-width: 1.75rem !important;
+      height: 1.75rem !important;
+    }
+
+    .consignado-draft-table td:last-child button svg {
+      width: 0.75rem !important;
+      height: 0.75rem !important;
+    }
+
+    /* Cards de itens para mobile/tablet */
+    .consignado-draft-cards {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .consignado-draft-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-draft-card .p-4 {
+      padding: 0.875rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Botão de excluir nos cards - aumentar tamanho */
+    .consignado-draft-card button.text-destructive {
+      min-width: 2.5rem !important;
+      min-height: 2.5rem !important;
+      width: 2.5rem !important;
+      height: 2.5rem !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .consignado-draft-card button.text-destructive svg {
+      width: 1.25rem !important;
+      height: 1.25rem !important;
+      min-width: 1.25rem !important;
+      min-height: 1.25rem !important;
+    }
+
+    /* Resumo do rascunho */
+    .consignado-draft-summary {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0.875rem !important;
+      box-sizing: border-box !important;
+      margin-top: 1rem !important;
+    }
+
+    .consignado-draft-summary-content {
+      width: 100% !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 0.75rem !important;
+    }
+
+    .consignado-draft-summary-content > div:first-child {
+      width: 100% !important;
+    }
+
+    .consignado-draft-summary-content .space-y-1 {
+      width: 100% !important;
+      gap: 0.5rem !important;
+    }
+
+    /* Badge de status */
+    .consignado-draft-summary-content .badge {
+      align-self: flex-start !important;
+      font-size: 0.75rem !important;
+      padding: 0.375rem 0.625rem !important;
+    }
+
+    /* Garantir que todos os elementos filhos não ultrapassem */
+    .consignado-itens-rascunho * {
+      box-sizing: border-box !important;
+      max-width: 100% !important;
+    }
+
+    /* Prevenir qualquer overflow horizontal */
+    .consignado-itens-rascunho {
+      overflow-x: hidden !important;
+      overflow-y: visible !important;
+    }
+
+    .consignado-itens-rascunho > * {
+      overflow-x: hidden !important;
+      max-width: 100% !important;
+    }
+  }
+
+  /* Ajustes para telas pequenas (<= 480px) */
+  @media (max-width: 480px) {
+    .consignado-itens-rascunho > div:first-child {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-itens-rascunho > div:last-child {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-draft-summary {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-draft-summary-content .text-sm {
+      font-size: 0.75rem !important;
+    }
+  }
+
+  /* Regra global para prevenir scroll horizontal no consignado */
+  @media (max-width: 938px) {
+    .consignado-gerenciar-folha,
+    .consignado-gerenciar-folha > *,
+    .consignado-itens-rascunho,
+    .consignado-itens-rascunho > * {
+      overflow-x: hidden !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  /* Itens Já Salvos - Cards ocultos por padrão (apenas acima de 1008px) */
+  .consignado-saved-cards {
+    display: none !important;
+  }
+
+  /* Itens Já Salvos - Responsividade para telas <= 1008px */
+  /* Esconder tabela e mostrar cards abaixo de 1009px */
+  @media (max-width: 1008px) {
+    /* Esconder tabela abaixo de 1008px */
+    .consignado-saved-table-container {
+      display: none !important;
+    }
+
+    /* Mostrar cards abaixo de 1008px */
+    .consignado-saved-cards {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  /* Mostrar tabela acima de 1009px */
+  @media (min-width: 1009px) {
+    .consignado-saved-table-container {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: visible !important;
+    }
+
+    .consignado-saved-cards {
+      display: none !important;
+    }
+
+    /* Garantir que a tabela não ultrapasse */
+    .consignado-saved-table {
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: auto !important;
+    }
+
+    .consignado-saved-table th,
+    .consignado-saved-table td {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-saved-table td:first-child {
+      max-width: 25% !important;
+      min-width: 0 !important;
+    }
+  }
+
+  /* Ajustes gerais para Itens Já Salvos */
+  @media (max-width: 1008px) {
+    /* Container principal - SEM scroll horizontal */
+    .consignado-itens-ja-salvos {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      box-sizing: border-box !important;
+      overflow: visible !important;
+      position: relative !important;
+    }
+
+    /* Garantir que o wrapper pai também não ultrapasse */
+    .consignado-gerenciar-folha .consignado-itens-ja-salvos {
+      max-width: 100% !important;
+    }
+
+    /* Header do componente */
+    .consignado-itens-ja-salvos .pb-3 {
+      padding: 0.875rem 1rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Flex container do header */
+    .consignado-itens-ja-salvos .pb-3 > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 0.75rem !important;
+    }
+
+    /* Título e informações do header */
+    .consignado-itens-ja-salvos .pb-3 > div > div:first-child {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    /* Controles do header */
+    .consignado-global-controls {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+    }
+
+    .consignado-commission-control {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex: 1 1 100% !important;
+    }
+
+    .consignado-refresh-button {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Container interno */
+    .consignado-itens-ja-salvos .pt-0 {
+      padding: 1rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Alert de aviso */
+    .consignado-itens-ja-salvos .border-blue-200,
+    .consignado-itens-ja-salvos .border-green-200 {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0.75rem !important;
+      box-sizing: border-box !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    .consignado-itens-ja-salvos .border-blue-200 p,
+    .consignado-itens-ja-salvos .border-green-200 p {
+      font-size: 0.75rem !important;
+      line-height: 1.4 !important;
+      word-break: break-word !important;
+      white-space: normal !important;
+    }
+
+    /* Cards de itens */
+    .consignado-saved-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-saved-card .p-4 {
+      padding: 0.875rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Grid de informações nos cards */
+    .consignado-saved-card .grid {
+      width: 100% !important;
+      max-width: 100% !important;
+      gap: 0.75rem !important;
+    }
+
+    /* Resumo financeiro */
+    .consignado-financial-summary {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0.875rem !important;
+      box-sizing: border-box !important;
+      margin-top: 1rem !important;
+    }
+
+    .consignado-summary-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 0.75rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .consignado-summary-grid > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      padding: 0.5rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-summary-grid > div > div:first-child {
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      font-size: 1.125rem !important;
+      line-height: 1.3 !important;
+    }
+
+    /* Garantir que todos os elementos filhos não ultrapassem */
+    .consignado-itens-ja-salvos * {
+      box-sizing: border-box !important;
+      max-width: 100% !important;
+    }
+
+    /* Prevenir qualquer overflow horizontal */
+    .consignado-itens-ja-salvos {
+      overflow-x: hidden !important;
+      overflow-y: visible !important;
+    }
+
+    .consignado-itens-ja-salvos > * {
+      overflow-x: hidden !important;
+      max-width: 100% !important;
+    }
+  }
+
+  /* Ajustes para telas pequenas (<= 480px) */
+  @media (max-width: 480px) {
+    .consignado-itens-ja-salvos .pb-3 {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-itens-ja-salvos .pt-0 {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-saved-card .p-4 {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-financial-summary {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-summary-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0.75rem !important;
+    }
+
+    .consignado-financial-summary h4 {
+      font-size: 0.875rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    .consignado-summary-grid .text-2xl {
+      font-size: 1.25rem !important;
+    }
+
+    .consignado-summary-grid .text-xl {
+      font-size: 1.125rem !important;
+    }
+
+    .consignado-summary-grid .text-lg {
+      font-size: 1rem !important;
+    }
+  }
+
+  /* Modal de Aviso de Entrega - Responsividade */
+  /* Ajustar apenas max-width, sem interferir no posicionamento do DialogContent */
+  .consignado-delivery-modal {
+    max-width: calc(100vw - 2rem) !important;
+    overflow-x: hidden !important;
+  }
+
+  @media (min-width: 640px) {
+    .consignado-delivery-modal {
+      max-width: min(32rem, calc(100vw - 4rem)) !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .consignado-delivery-modal {
+      max-width: 32rem !important;
+    }
+  }
+
+  /* Garantir que o conteúdo interno não ultrapasse os limites */
+  .consignado-delivery-modal .consignado-delivery-footer,
+  .consignado-delivery-modal .consignado-delivery-warning-box {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Warning box */
+  .consignado-delivery-warning-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .consignado-delivery-warning-box > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .consignado-delivery-warning-box p {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Footer dos botões - sobrescrever estilos padrão do DialogFooter */
+  .consignado-delivery-footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-top: 1.5rem !important;
+    gap: 0.75rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important;
+  }
+
+  .consignado-reload-button,
+  .consignado-continue-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    position: relative !important;
+  }
+
+  .consignado-reload-button span,
+  .consignado-continue-button span {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    display: inline-block !important;
+    max-width: 100% !important;
+    position: relative !important;
+  }
+
+  /* Garantir que os ícones também não causem overflow */
+  .consignado-reload-button svg,
+  .consignado-continue-button svg {
+    flex-shrink: 0 !important;
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  /* Em telas maiores, garantir que os botões compartilhem espaço igualmente */
+  @media (min-width: 641px) {
+    .consignado-delivery-modal {
+      max-width: min(32rem, calc(100vw - 4rem)) !important;
+    }
+
+    .consignado-delivery-footer {
+      flex-direction: row !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.75rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .consignado-reload-button,
+    .consignado-continue-button {
+      flex: 1 1 0% !important;
+      min-width: 0 !important;
+      max-width: calc(50% - 0.375rem) !important;
+      width: auto !important;
+      overflow: visible !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Garantir que o texto dos botões não seja cortado */
+    .consignado-reload-button > *,
+    .consignado-continue-button > * {
+      max-width: 100% !important;
+      overflow: visible !important;
+    }
+
+    /* Se o texto for muito longo, reduzir o padding horizontal */
+    .consignado-reload-button,
+    .consignado-continue-button {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+    }
+  }
+
+  /* Ajustes para telas pequenas (<= 640px) */
+  @media (max-width: 640px) {
+    .consignado-delivery-modal {
+      max-width: calc(100vw - 1rem) !important;
+    }
+
+    .consignado-delivery-warning-box {
+      padding: 0.875rem !important;
+      margin-bottom: 1rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-delivery-footer {
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .consignado-reload-button,
+    .consignado-continue-button {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+    }
+  }
+
+  /* Ajustes para telas muito pequenas (<= 480px) */
+  @media (max-width: 480px) {
+    .consignado-delivery-modal {
+      max-width: calc(100vw - 0.5rem) !important;
+    }
+
+    .consignado-delivery-warning-box {
+      padding: 0.75rem !important;
+      gap: 0.75rem !important;
+    }
+
+    .consignado-delivery-warning-box > div > div:first-child {
+      width: 2rem !important;
+      height: 2rem !important;
+      flex-shrink: 0 !important;
+    }
+
+    .consignado-delivery-warning-box > div > div:last-child {
+      min-width: 0 !important;
+      flex: 1 !important;
+    }
+
+    .consignado-reload-button,
+    .consignado-continue-button {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+      font-size: 0.875rem !important;
+    }
+
+    .consignado-reload-button svg,
+    .consignado-continue-button svg {
+      width: 1rem !important;
+      height: 1rem !important;
+    }
+  }
+
+  /* Ajustes para telas muito pequenas (<= 360px) */
+  @media (max-width: 360px) {
+    .consignado-delivery-modal {
+      max-width: calc(100vw - 0.25rem) !important;
+    }
+
+    .consignado-delivery-warning-box {
+      padding: 0.625rem !important;
+    }
+
+    .consignado-reload-button span,
+    .consignado-continue-button span {
+      font-size: 0.8125rem !important;
+    }
+  }
+
+  /* Aba "Com a Cliente" - Cards ocultos por padrão (acima de 1300px) */
+  .consignado-com-cliente-cards {
+    display: none !important;
+  }
+
+  /* Aba "Com a Cliente" - Esconder tabela e mostrar cards abaixo de 1300px */
+  @media (max-width: 1299px) {
+    .consignado-com-cliente-table {
+      display: none !important;
+    }
+
+    .consignado-com-cliente-cards {
+      display: block !important;
+    }
+  }
+
+  /* Aba "Com a Cliente" - Responsividade para telas <= 1300px */
+  @media (max-width: 1300px) {
+    /* Container da aba */
+    .consignado-com-cliente-tab {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Card principal */
+    .consignado-com-cliente-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Header do card */
+    .consignado-com-cliente-header {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Content do card */
+    .consignado-com-cliente-content {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 1rem !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Cards de itens */
+    .consignado-com-cliente-cards {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .consignado-com-cliente-cards > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    /* Garantir que todos os elementos dentro dos cards não ultrapassem */
+    .consignado-com-cliente-cards * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Botões nos cards - layout responsivo */
+    .consignado-com-cliente-cards button {
+      max-width: 100% !important;
+      word-break: break-word !important;
+      white-space: normal !important;
+      min-width: 0 !important;
+      flex: 1 1 auto !important;
+    }
+
+    /* Container de botões nos cards */
+    .consignado-com-cliente-cards .flex.flex-wrap {
+      gap: 0.5rem !important;
+      width: 100% !important;
+    }
+
+    /* Grid de informações nos cards */
+    .consignado-com-cliente-cards .grid {
+      width: 100% !important;
+      max-width: 100% !important;
+      gap: 0.75rem !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Texto de observação nos cards */
+    .consignado-com-cliente-cards [class*="text-"] {
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+    }
+  }
+
+  /* Ajustes para telas menores (<= 640px) */
+  @media (max-width: 640px) {
+    .consignado-com-cliente-header {
+      padding: 0.875rem !important;
+    }
+
+    .consignado-com-cliente-content {
+      padding: 0.875rem !important;
+    }
+
+    .consignado-com-cliente-cards .grid {
+      grid-template-columns: 1fr !important;
+      gap: 0.75rem !important;
+    }
+  }
+
+  /* Ajustes para telas muito pequenas (<= 480px) */
+  @media (max-width: 480px) {
+    .consignado-com-cliente-header {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-com-cliente-content {
+      padding: 0.75rem !important;
+    }
+  }
+
+  /* Mostrar tabela e esconder cards acima de 1300px */
+  @media (min-width: 1300px) {
+    .consignado-com-cliente-table {
+      display: block !important;
+    }
+
+    .consignado-com-cliente-cards {
+      display: none !important;
+    }
+
+    /* Tabela "Com a Cliente" - Responsividade para telas >= 1300px */
+    .consignado-com-cliente-table {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      overflow-y: visible !important;
+    }
+
+    .consignado-com-cliente-table-content {
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: auto !important;
+    }
+
+    /* Garantir que células da tabela não ultrapassem */
+    .consignado-com-cliente-table-content th,
+    .consignado-com-cliente-table-content td {
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      padding: 0.875rem 1rem !important;
+      box-sizing: border-box !important;
+      vertical-align: top !important;
+    }
+
+    /* Coluna de Código */
+    .consignado-com-cliente-table-content th:first-child,
+    .consignado-com-cliente-table-content td:first-child {
+      width: 10% !important;
+      max-width: 130px !important;
+      min-width: 110px !important;
+    }
+
+    /* Coluna de Consultora */
+    .consignado-com-cliente-table-content th:nth-child(2),
+    .consignado-com-cliente-table-content td:nth-child(2) {
+      width: 15% !important;
+      max-width: 200px !important;
+      min-width: 160px !important;
+    }
+
+    /* Coluna de Data (Entregue em / Criado em) */
+    .consignado-com-cliente-table-content th:nth-child(3),
+    .consignado-com-cliente-table-content td:nth-child(3) {
+      width: 12% !important;
+      max-width: 140px !important;
+      min-width: 120px !important;
+    }
+
+    /* Coluna de Prazo */
+    .consignado-com-cliente-table-content th:nth-child(4),
+    .consignado-com-cliente-table-content td:nth-child(4) {
+      width: 12% !important;
+      max-width: 140px !important;
+      min-width: 120px !important;
+    }
+
+    /* Coluna de Observação - ajustar largura quando há colunas Itens/Valor */
+    .consignado-com-cliente-table-content th:nth-child(5),
+    .consignado-com-cliente-table-content td:nth-child(5) {
+      width: 25% !important;
+      max-width: 280px !important;
+      min-width: 200px !important;
+    }
+
+    /* Colunas de Itens e Valor quando presentes (isDelivered) */
+    .consignado-com-cliente-table-content th:nth-child(6),
+    .consignado-com-cliente-table-content td:nth-child(6),
+    .consignado-com-cliente-table-content th:nth-child(7),
+    .consignado-com-cliente-table-content td:nth-child(7) {
+      width: 8% !important;
+      max-width: 110px !important;
+      min-width: 90px !important;
+      text-align: right !important;
+    }
+
+    /* Coluna de Ações - largura fixa */
+    .consignado-com-cliente-table-content th:last-child,
+    .consignado-com-cliente-table-content td:last-child {
+      width: 18% !important;
+      max-width: 200px !important;
+      min-width: 160px !important;
+      text-align: right !important;
+    }
+
+    /* Botões na coluna de ações */
+    .consignado-com-cliente-table-content td:last-child button {
+      white-space: nowrap !important;
+      min-width: auto !important;
+      flex-shrink: 0 !important;
+      font-size: 0.875rem !important;
+      padding: 0.5rem 0.75rem !important;
+    }
+
+    /* Container de botões na tabela */
+    .consignado-com-cliente-table-content td:last-child .flex {
+      justify-content: flex-end !important;
+      flex-wrap: nowrap !important;
+      gap: 0.5rem !important;
+    }
+
+    /* Ajustes adicionais para telas maiores (>= 1400px) */
+    @media (min-width: 1400px) {
+      .consignado-com-cliente-table-content th,
+      .consignado-com-cliente-table-content td {
+        padding: 1rem 1.25rem !important;
+      }
+
+      .consignado-com-cliente-table-content th:first-child,
+      .consignado-com-cliente-table-content td:first-child {
+        max-width: 150px !important;
+      }
+
+      .consignado-com-cliente-table-content th:nth-child(2),
+      .consignado-com-cliente-table-content td:nth-child(2) {
+        max-width: 220px !important;
+      }
+
+      .consignado-com-cliente-table-content th:nth-child(5),
+      .consignado-com-cliente-table-content td:nth-child(5) {
+        max-width: 320px !important;
+      }
+    }
+  }
+
+  /* Gerenciar Devoluções - Responsividade para telas <= 1245px */
+  /* Container principal */
+  .consignado-devolucoes-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0.75rem !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Header da Folha */
+  .consignado-devolucoes-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .consignado-devolucoes-header-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .consignado-devolucoes-header-left,
+  .consignado-devolucoes-header-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Valores no header - manter horizontal até telas menores */
+  .consignado-devolucoes-header-right > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .consignado-devolucoes-header-right > div:first-child > div {
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Botões no header - manter horizontal e não cortar */
+  .consignado-devolucoes-header-right > div:last-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+
+  .consignado-devolucoes-status-badge,
+  .consignado-devolucoes-pdf-button,
+  .consignado-devolucoes-payment-button {
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+  }
+
+  /* Ajustes específicos para telas entre 1143px e 1280px */
+  @media (min-width: 1143px) and (max-width: 1279px) {
+    .consignado-devolucoes-header-content {
+      flex-direction: row !important;
+      align-items: flex-start !important;
+    }
+
+    .consignado-devolucoes-header-left {
+      width: auto !important;
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+    }
+
+    .consignado-devolucoes-header-right {
+      width: auto !important;
+      flex: 0 0 auto !important;
+      min-width: 0 !important;
+    }
+
+    .consignado-devolucoes-header-right > div:first-child {
+      justify-content: flex-end !important;
+    }
+
+    .consignado-devolucoes-header-right > div:last-child {
+      justify-content: flex-end !important;
+      flex-wrap: nowrap !important;
+    }
+
+    .consignado-devolucoes-pdf-button,
+    .consignado-devolucoes-payment-button {
+      padding-left: 0.875rem !important;
+      padding-right: 0.875rem !important;
+      font-size: 0.875rem !important;
+    }
+
+    .consignado-devolucoes-payment-button span {
+      font-size: 0.875rem !important;
+    }
+  }
+
+  /* Ajustes para telas menores que 1143px */
+  @media (max-width: 1142px) {
+    .consignado-devolucoes-header-content {
+      flex-direction: column !important;
+    }
+
+    .consignado-devolucoes-header-left,
+    .consignado-devolucoes-header-right {
+      width: 100% !important;
+    }
+
+    .consignado-devolucoes-header-right > div:first-child {
+      justify-content: flex-start !important;
+      flex-wrap: wrap !important;
+    }
+
+    .consignado-devolucoes-header-right > div:last-child {
+      justify-content: flex-start !important;
+      flex-wrap: wrap !important;
+    }
+
+    .consignado-devolucoes-status-badge,
+    .consignado-devolucoes-pdf-button,
+    .consignado-devolucoes-payment-button {
+      flex: 1 1 auto !important;
+      min-width: 120px !important;
+    }
+  }
+
+  /* Ajustes para telas muito pequenas */
+  @media (max-width: 640px) {
+    .consignado-devolucoes-header-right > div:first-child {
+      flex-direction: column !important;
+      gap: 0.5rem !important;
+    }
+
+    .consignado-devolucoes-header-right > div:first-child > div {
+      width: 100% !important;
+    }
+
+    .consignado-devolucoes-status-badge,
+    .consignado-devolucoes-pdf-button,
+    .consignado-devolucoes-payment-button {
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+  }
+
+  /* Alertas */
+  .consignado-devolucoes-alert {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.875rem !important;
+    overflow-x: hidden !important;
+  }
+
+  .consignado-devolucoes-alert * {
+    max-width: 100% !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Rascunho de Devoluções */
+  .consignado-devolucoes-rascunho {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .consignado-devolucoes-rascunho-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.875rem 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .consignado-devolucoes-rascunho-header > div {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Botões no header do rascunho */
+  .consignado-devolucoes-scanner-button,
+  .consignado-devolucoes-add-button,
+  .consignado-devolucoes-save-button {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Cards de rascunho */
+  .consignado-devolucoes-rascunho-cards {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .consignado-devolucoes-rascunho-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .consignado-devolucoes-rascunho-card * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Produtos */
+  .consignado-devolucoes-produtos {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .consignado-devolucoes-produtos-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Container de cards com scroll vertical e horizontal */
+  .consignado-devolucoes-produtos-cards-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Cards de produtos - Layout compacto em uma linha com largura mínima */
+  .consignado-devolucoes-produtos-cards {
+    width: 100% !important;
+    min-width: fit-content !important;
+    box-sizing: border-box !important;
+  }
+
+  .consignado-devolucoes-produto-card {
+    width: 100% !important;
+    min-width: fit-content !important;
+    box-sizing: border-box !important;
+  }
+
+  .consignado-devolucoes-produto-card * {
+    box-sizing: border-box !important;
+  }
+
+  /* Garantir que o conteúdo fique em uma linha e seja legível */
+  .consignado-devolucoes-produto-card > div {
+    width: 100% !important;
+    min-width: fit-content !important;
+  }
+
+  .consignado-devolucoes-produto-card > div > div {
+    width: 100% !important;
+    min-width: fit-content !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* Ajustes para telas pequenas - manter largura mínima para legibilidade */
+  @media (max-width: 639px) {
+    .consignado-devolucoes-produto-card {
+      min-width: 800px !important;
+    }
+  }
+
+  /* Scrollbar customizada para melhor UX */
+  .consignado-devolucoes-produtos-cards-container::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  .consignado-devolucoes-produtos-cards-container::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  .consignado-devolucoes-produtos-cards-container::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+
+  .consignado-devolucoes-produtos-cards-container::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Resumo */
+  .consignado-devolucoes-resumo {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .consignado-devolucoes-resumo-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 0.75rem !important;
+  }
+
+  .consignado-devolucoes-resumo-grid > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.75rem !important;
+  }
+
+  /* Ajustes para telas pequenas (<= 640px) */
+  @media (max-width: 640px) {
+    .consignado-devolucoes-container {
+      padding: 0.5rem !important;
+    }
+
+    .consignado-devolucoes-header {
+      padding: 0.875rem !important;
+    }
+
+    .consignado-devolucoes-resumo-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 0.5rem !important;
+    }
+
+    .consignado-devolucoes-resumo-grid > div {
+      padding: 0.625rem !important;
+    }
+
+    .consignado-devolucoes-resumo-grid > div > div:first-child {
+      font-size: 0.75rem !important;
+    }
+
+    .consignado-devolucoes-resumo-grid > div > div:last-child {
+      font-size: 1.125rem !important;
+    }
+  }
+
+  /* Ajustes para telas muito pequenas (<= 480px) */
+  @media (max-width: 480px) {
+    .consignado-devolucoes-container {
+      padding: 0.5rem !important;
+    }
+
+    .consignado-devolucoes-header {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-devolucoes-resumo-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0.5rem !important;
+    }
+
+    .consignado-devolucoes-rascunho-header {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-devolucoes-produtos-header {
+      padding: 0.75rem !important;
+    }
+  }
+
+  /* Cards - Mostrar por padrão (abaixo de 1245px) */
+  .consignado-devolucoes-rascunho-cards {
+    display: block !important;
+  }
+
+  /* Produtos Salvos - Sempre mostrar cards (layout reformulado) */
+  .consignado-devolucoes-produtos-cards {
+    display: block !important;
+  }
+
+  /* Tabelas - Esconder abaixo de 1245px */
+  @media (max-width: 1244px) {
+    .consignado-devolucoes-rascunho-table-container {
+      display: none !important;
+    }
+
+    .consignado-devolucoes-produtos-table-container {
+      display: none !important;
+    }
+
+    .consignado-devolucoes-rascunho-cards {
+      display: block !important;
+    }
+  }
+
+  /* Tabelas - Responsividade para telas >= 1245px */
+  @media (min-width: 1245px) {
+    .consignado-devolucoes-rascunho-table-container {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Produtos Salvos - Sempre esconder tabela (usar apenas cards) */
+    .consignado-devolucoes-produtos-table-container {
+      display: none !important;
+    }
+
+    .consignado-devolucoes-rascunho-cards {
+      display: none !important;
+    }
+
+    /* Produtos Salvos - Sempre mostrar cards */
+    .consignado-devolucoes-produtos-cards {
+      display: block !important;
+    }
+
+    /* Tabela de Rascunho */
+    .consignado-devolucoes-rascunho-table {
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: auto !important;
+    }
+
+    .consignado-devolucoes-rascunho-table th,
+    .consignado-devolucoes-rascunho-table td {
+      max-width: 200px !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      padding: 0.75rem !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Tabela de Produtos */
+    .consignado-devolucoes-produtos-table {
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: auto !important;
+    }
+
+    .consignado-devolucoes-produtos-table th,
+    .consignado-devolucoes-produtos-table td {
+      max-width: 150px !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      padding: 0.75rem !important;
+      box-sizing: border-box !important;
+      font-size: 0.875rem !important;
+    }
+
+    /* Coluna de Produto - mais larga */
+    .consignado-devolucoes-produtos-table th:first-child,
+    .consignado-devolucoes-produtos-table td:first-child {
+      max-width: 200px !important;
+      min-width: 150px !important;
+    }
+
+    /* Colunas numéricas - mais estreitas */
+    .consignado-devolucoes-produtos-table th:nth-child(n+2),
+    .consignado-devolucoes-produtos-table td:nth-child(n+2) {
+      max-width: 120px !important;
+      min-width: 80px !important;
+    }
+  }
+
+  /* Modal de Seleção Manual - Responsividade */
+  .consignado-devolucoes-manual-modal {
+    max-width: calc(100vw - 2rem) !important;
+    width: calc(100vw - 2rem) !important;
+    margin: 1rem !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  @media (max-width: 640px) {
+    .consignado-devolucoes-manual-modal {
+      max-width: calc(100vw - 1rem) !important;
+      width: calc(100vw - 1rem) !important;
+      margin: 0.5rem !important;
+      padding: 1rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .consignado-devolucoes-manual-modal {
+      max-width: calc(100vw - 0.5rem) !important;
+      width: calc(100vw - 0.5rem) !important;
+      margin: 0.25rem !important;
+      padding: 0.875rem !important;
+    }
+  }
+
+  /* Ajustes adicionais para responsividade geral */
+  @media (max-width: 1245px) {
+    /* Garantir que todos os elementos dentro do container não ultrapassem */
+    .consignado-devolucoes-container * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Garantir que inputs não causem overflow */
+    .consignado-devolucoes-container input,
+    .consignado-devolucoes-container button {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Grid do resumo - ajustar para 2 colunas em tablets */
+    @media (min-width: 640px) and (max-width: 1244px) {
+      .consignado-devolucoes-resumo-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+
+    /* Grid do resumo - ajustar para 2 colunas em mobile */
+    @media (max-width: 639px) {
+      .consignado-devolucoes-resumo-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+  }
+
+  /* Gerenciar Pagamento - Responsividade para telas <= 1245px */
+  /* Container principal */
+  .consignado-pagamento-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0.75rem !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Header */
+  .consignado-pagamento-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .consignado-pagamento-back-button {
+    flex-shrink: 0 !important;
+  }
+
+  /* Resumo Financeiro - Cards em linha sem scroll horizontal */
+  .consignado-pagamento-resumo {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.5rem 0.75rem !important;
+    box-sizing: border-box !important;
+    overflow-x: visible !important;
+    overflow-y: hidden !important;
+  }
+
+  /* A partir de 930px - mudar para grid 2x2 */
+  @media (max-width: 930px) {
+    .consignado-pagamento-resumo {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 0.75rem !important;
+    }
+  }
+
+  .consignado-pagamento-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    flex-shrink: 1 !important;
+    overflow: visible !important;
+  }
+
+  .consignado-pagamento-card > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  .consignado-pagamento-card > div > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  /* Garantir que textos não sejam truncados */
+  .consignado-pagamento-card p {
+    text-overflow: clip !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+  }
+
+  /* Garantir que ícones não diminuam */
+  .consignado-pagamento-card svg {
+    flex-shrink: 0 !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Ajustes para telas médias */
+  @media (min-width: 640px) {
+    .consignado-pagamento-resumo {
+      gap: 0.5rem 0.75rem !important;
+    }
+
+    .consignado-pagamento-card svg {
+      min-width: 22px !important;
+      min-height: 22px !important;
+      width: 22px !important;
+      height: 22px !important;
+    }
+  }
+
+  /* Ajustes para telas entre 931px e 1244px - reduzir tamanho da fonte */
+  @media (min-width: 931px) and (max-width: 1244px) {
+    .consignado-pagamento-card p {
+      font-size: 0.75rem !important; /* text-xs */
+    }
+
+    .consignado-pagamento-card p:last-child {
+      font-size: 0.875rem !important; /* text-sm */
+    }
+
+    .consignado-pagamento-resumo {
+      gap: 0.5rem !important;
+    }
+
+    .consignado-pagamento-card {
+      padding: 0.5rem !important;
+    }
+  }
+
+  /* Ajustes específicos para 1169px e próximos - garantir que valores não sejam truncados */
+  @media (min-width: 1100px) and (max-width: 1200px) {
+    .consignado-pagamento-card p:first-child {
+      font-size: 0.7rem !important;
+    }
+
+    .consignado-pagamento-card p:last-child {
+      font-size: 0.8rem !important;
+    }
+
+    .consignado-pagamento-resumo {
+      gap: 0.375rem !important;
+    }
+
+    .consignado-pagamento-card > div {
+      padding: 0.5rem !important;
+    }
+
+    .consignado-pagamento-card svg {
+      min-width: 18px !important;
+      min-height: 18px !important;
+      width: 18px !important;
+      height: 18px !important;
+    }
+  }
+
+  /* Ajustes para telas <= 930px - grid 2x2 */
+  @media (max-width: 930px) {
+    .consignado-pagamento-card {
+      min-width: 0 !important;
+    }
+
+    .consignado-pagamento-card > div {
+      padding: 0.75rem !important;
+    }
+
+    .consignado-pagamento-card p:first-child {
+      font-size: 0.75rem !important;
+    }
+
+    .consignado-pagamento-card p:last-child {
+      font-size: 1rem !important;
+    }
+
+    .consignado-pagamento-card svg {
+      min-width: 24px !important;
+      min-height: 24px !important;
+      width: 24px !important;
+      height: 24px !important;
+    }
+
+    /* Garantir que não haja sobreposição */
+    .consignado-pagamento-card > div > div {
+      gap: 0.75rem !important;
+    }
+  }
+
+  /* Ajustes para telas pequenas */
+  @media (max-width: 639px) {
+    .consignado-pagamento-resumo {
+      gap: 0.5rem !important;
+    }
+
+    .consignado-pagamento-card svg {
+      min-width: 18px !important;
+      min-height: 18px !important;
+      width: 18px !important;
+      height: 18px !important;
+    }
+  }
+
+  /* Ajustes para telas >= 1245px - layout normal */
+  @media (min-width: 1245px) {
+    .consignado-pagamento-resumo {
+      gap: 1rem !important;
+    }
+
+    .consignado-pagamento-card svg {
+      min-width: 32px !important;
+      min-height: 32px !important;
+      width: 32px !important;
+      height: 32px !important;
+    }
+  }
+
+  /* Produtos da Folha - Responsividade */
+  .consignado-pagamento-produtos {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Container da tabela */
+  .consignado-pagamento-produtos-table-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .consignado-pagamento-produtos-table {
+    width: 100% !important;
+    min-width: 600px !important;
+  }
+
+  /* Ajustes para células da tabela */
+  .consignado-pagamento-produtos-table th,
+  .consignado-pagamento-produtos-table td {
+    padding: 0.5rem 0.75rem !important;
+    white-space: nowrap !important;
+    font-size: 0.875rem !important;
+  }
+
+  .consignado-pagamento-produtos-table th:first-child,
+  .consignado-pagamento-produtos-table td:first-child {
+    min-width: 80px !important;
+  }
+
+  .consignado-pagamento-produtos-table th:nth-child(2),
+  .consignado-pagamento-produtos-table td:nth-child(2) {
+    min-width: 150px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  .consignado-pagamento-produtos-table th:nth-child(3),
+  .consignado-pagamento-produtos-table td:nth-child(3) {
+    min-width: 60px !important;
+  }
+
+  .consignado-pagamento-produtos-table th:nth-child(4),
+  .consignado-pagamento-produtos-table td:nth-child(4) {
+    min-width: 100px !important;
+  }
+
+  .consignado-pagamento-produtos-table th:nth-child(5),
+  .consignado-pagamento-produtos-table td:nth-child(5) {
+    min-width: 100px !important;
+  }
+
+  .consignado-pagamento-produtos-table th:nth-child(6),
+  .consignado-pagamento-produtos-table td:nth-child(6) {
+    min-width: 90px !important;
+  }
+
+  .consignado-pagamento-produtos-table th:nth-child(7),
+  .consignado-pagamento-produtos-table td:nth-child(7) {
+    min-width: 120px !important;
+  }
+
+  /* Ajustes para telas pequenas (425px - 767px) - reduzir tamanhos mínimos */
+  @media (min-width: 425px) and (max-width: 767px) {
+    .consignado-pagamento-produtos-table {
+      min-width: 500px !important;
+    }
+
+    .consignado-pagamento-produtos-table th,
+    .consignado-pagamento-produtos-table td {
+      padding: 0.375rem 0.5rem !important;
+      font-size: 0.8125rem !important;
+    }
+
+    .consignado-pagamento-produtos-table th:first-child,
+    .consignado-pagamento-produtos-table td:first-child {
+      min-width: 70px !important;
+    }
+
+    .consignado-pagamento-produtos-table th:nth-child(2),
+    .consignado-pagamento-produtos-table td:nth-child(2) {
+      min-width: 120px !important;
+    }
+
+    .consignado-pagamento-produtos-table th:nth-child(3),
+    .consignado-pagamento-produtos-table td:nth-child(3) {
+      min-width: 50px !important;
+    }
+
+    .consignado-pagamento-produtos-table th:nth-child(4),
+    .consignado-pagamento-produtos-table td:nth-child(4) {
+      min-width: 85px !important;
+    }
+
+    .consignado-pagamento-produtos-table th:nth-child(5),
+    .consignado-pagamento-produtos-table td:nth-child(5) {
+      min-width: 85px !important;
+    }
+
+    .consignado-pagamento-produtos-table th:nth-child(6),
+    .consignado-pagamento-produtos-table td:nth-child(6) {
+      min-width: 75px !important;
+    }
+
+    .consignado-pagamento-produtos-table th:nth-child(7),
+    .consignado-pagamento-produtos-table td:nth-child(7) {
+      min-width: 100px !important;
+    }
+  }
+
+  /* Cards para mobile/tablet */
+  .consignado-pagamento-produtos-cards {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .consignado-pagamento-produto-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Scrollbar customizada para a tabela */
+  .consignado-pagamento-produtos-table-container::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .consignado-pagamento-produtos-table-container::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .consignado-pagamento-produtos-table-container::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  .consignado-pagamento-produtos-table-container::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Ajustes para telas médias - reduzir padding */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .consignado-pagamento-produtos-table th,
+    .consignado-pagamento-produtos-table td {
+      padding: 0.5rem !important;
+      font-size: 0.8125rem !important;
+    }
+  }
+
+  /* Registros de Pagamento - Responsividade */
+  .consignado-pagamento-registros {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Header dos registros */
+  .consignado-pagamento-registros-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .consignado-pagamento-add-button {
+    flex-shrink: 0 !important;
+    min-width: fit-content !important;
+    white-space: nowrap !important;
+  }
+
+  /* Ajustes para telas pequenas - garantir que botão não seja cortado */
+  @media (max-width: 640px) {
+    .consignado-pagamento-registros-header {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 0.75rem !important;
+    }
+
+    .consignado-pagamento-add-button {
+      width: 100% !important;
+      justify-content: center !important;
+    }
+  }
+
+  /* Ajustes específicos para 496px - 640px */
+  @media (min-width: 496px) and (max-width: 640px) {
+    .consignado-pagamento-registros-header {
+      flex-direction: row !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 0.75rem !important;
+    }
+
+    .consignado-pagamento-registros-header > h3 {
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+    }
+
+    .consignado-pagamento-add-button {
+      flex: 0 0 auto !important;
+      width: auto !important;
+      min-width: fit-content !important;
+    }
+  }
+
+  /* Container da tabela */
+  .consignado-pagamento-registros-table-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .consignado-pagamento-registros-table {
+    width: 100% !important;
+    min-width: 600px !important;
+  }
+
+  /* Ajustes para células da tabela */
+  .consignado-pagamento-registros-table th,
+  .consignado-pagamento-registros-table td {
+    padding: 0.5rem 0.75rem !important;
+    white-space: nowrap !important;
+    font-size: 0.875rem !important;
+  }
+
+  .consignado-pagamento-registros-table th:first-child,
+  .consignado-pagamento-registros-table td:first-child {
+    min-width: 90px !important;
+  }
+
+  .consignado-pagamento-registros-table th:nth-child(2),
+  .consignado-pagamento-registros-table td:nth-child(2) {
+    min-width: 100px !important;
+  }
+
+  .consignado-pagamento-registros-table th:nth-child(3),
+  .consignado-pagamento-registros-table td:nth-child(3) {
+    min-width: 120px !important;
+  }
+
+  .consignado-pagamento-registros-table th:nth-child(4),
+  .consignado-pagamento-registros-table td:nth-child(4) {
+    min-width: 120px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  .consignado-pagamento-registros-table th:nth-child(5),
+  .consignado-pagamento-registros-table td:nth-child(5) {
+    min-width: 150px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  .consignado-pagamento-registros-table th:nth-child(6),
+  .consignado-pagamento-registros-table td:nth-child(6) {
+    min-width: 80px !important;
+  }
+
+  /* Ajustes para telas pequenas (425px - 767px) */
+  @media (min-width: 425px) and (max-width: 767px) {
+    .consignado-pagamento-registros-table {
+      min-width: 500px !important;
+    }
+
+    .consignado-pagamento-registros-table th,
+    .consignado-pagamento-registros-table td {
+      padding: 0.375rem 0.5rem !important;
+      font-size: 0.8125rem !important;
+    }
+
+    .consignado-pagamento-registros-table th:first-child,
+    .consignado-pagamento-registros-table td:first-child {
+      min-width: 80px !important;
+    }
+
+    .consignado-pagamento-registros-table th:nth-child(2),
+    .consignado-pagamento-registros-table td:nth-child(2) {
+      min-width: 85px !important;
+    }
+
+    .consignado-pagamento-registros-table th:nth-child(3),
+    .consignado-pagamento-registros-table td:nth-child(3) {
+      min-width: 100px !important;
+    }
+
+    .consignado-pagamento-registros-table th:nth-child(4),
+    .consignado-pagamento-registros-table td:nth-child(4) {
+      min-width: 100px !important;
+    }
+
+    .consignado-pagamento-registros-table th:nth-child(5),
+    .consignado-pagamento-registros-table td:nth-child(5) {
+      min-width: 120px !important;
+    }
+
+    .consignado-pagamento-registros-table th:nth-child(6),
+    .consignado-pagamento-registros-table td:nth-child(6) {
+      min-width: 70px !important;
+    }
+  }
+
+  /* Cards para mobile/tablet */
+  .consignado-pagamento-registros-cards {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .consignado-pagamento-registro-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Scrollbar customizada para a tabela */
+  .consignado-pagamento-registros-table-container::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .consignado-pagamento-registros-table-container::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .consignado-pagamento-registros-table-container::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  .consignado-pagamento-registros-table-container::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Payment Details Modal - Responsividade a partir de 760px */
+  .consignado-payment-details-modal {
+    width: calc(100vw - 2rem) !important;
+    max-width: 100% !important;
+    margin: 1rem !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Ajustes para telas <= 624px - garantir que não haja zoom/overflow horizontal */
+  @media (max-width: 624px) {
+    .consignado-payment-details-modal {
+      width: calc(100vw - 0.5rem) !important;
+      max-width: calc(100vw - 0.5rem) !important;
+      margin: 0.25rem !important;
+      padding: 0.75rem !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+    }
+
+    /* Garantir que nenhum elemento interno cause overflow */
+    .consignado-payment-details-modal * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  /* Título do modal */
+  .consignado-payment-details-title {
+    word-break: break-words !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Conteúdo do modal */
+  .consignado-payment-details-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Informações Gerais - Grid responsivo */
+  .consignado-payment-details-info-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Resumo Financeiro - Grid responsivo */
+  .consignado-payment-details-summary-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .consignado-payment-details-summary-item {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Produtos - Tabela */
+  .consignado-payment-details-products-table-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .consignado-payment-details-products-table {
+    width: 100% !important;
+    min-width: 600px !important;
+  }
+
+  .consignado-payment-details-products-table th,
+  .consignado-payment-details-products-table td {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Cards de produtos para mobile */
+  .consignado-payment-details-products-cards {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .consignado-payment-details-product-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Pagamentos - Lista responsiva */
+  .consignado-payment-details-payments-list {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .consignado-payment-details-payment-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ajustes para telas <= 760px */
+  @media (max-width: 760px) {
+    .consignado-payment-details-modal {
+      width: calc(100vw - 1rem) !important;
+      max-width: calc(100vw - 1rem) !important;
+      margin: 0.5rem !important;
+      padding: 0.75rem !important;
+      max-height: calc(100vh - 1rem) !important;
+      overflow-x: hidden !important;
+    }
+
+    .consignado-payment-details-content {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .consignado-payment-details-info-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0.75rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .consignado-payment-details-summary-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 0.5rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .consignado-payment-details-summary-item {
+      padding: 0.75rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    .consignado-payment-details-summary-item p:first-child {
+      font-size: 0.7rem !important;
+    }
+
+    .consignado-payment-details-summary-item p:last-child {
+      font-size: 0.875rem !important;
+    }
+  }
+
+  /* Ajustes para telas <= 640px */
+  @media (max-width: 640px) {
+    .consignado-payment-details-summary-grid {
+      grid-template-columns: 1fr !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+
+  /* Ajustes específicos para <= 624px - evitar zoom/overflow */
+  @media (max-width: 624px) {
+    .consignado-payment-details-content {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .consignado-payment-details-info-card,
+    .consignado-payment-details-summary-card,
+    .consignado-payment-details-products-card,
+    .consignado-payment-details-payments-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .consignado-payment-details-info-card > div,
+    .consignado-payment-details-summary-card > div,
+    .consignado-payment-details-products-card > div,
+    .consignado-payment-details-payments-card > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .consignado-payment-details-summary-item {
+      padding: 0.5rem !important;
+    }
+
+    .consignado-payment-details-summary-item p:first-child {
+      font-size: 0.65rem !important;
+    }
+
+    .consignado-payment-details-summary-item p:last-child {
+      font-size: 0.8rem !important;
+    }
+  }
+
+  /* Ajustes para telas <= 425px - produtos em cards */
+  @media (max-width: 424px) {
+    .consignado-payment-details-products-table-container {
+      display: none !important;
+    }
+
+    .consignado-payment-details-products-cards {
+      display: block !important;
+    }
+  }
+
+  /* Ajustes para telas entre 425px e 760px - tabela de produtos */
+  @media (min-width: 425px) and (max-width: 760px) {
+    .consignado-payment-details-products-table {
+      min-width: 500px !important;
+    }
+
+    .consignado-payment-details-products-table th,
+    .consignado-payment-details-products-table td {
+      padding: 0.375rem 0.5rem !important;
+      font-size: 0.8125rem !important;
+    }
+  }
+
+  /* Ajustes para telas <= 624px - garantir que tabela não cause overflow */
+  @media (max-width: 624px) {
+    /* Esconder tabela e mostrar cards abaixo de 624px para evitar scroll horizontal */
+    .consignado-payment-details-products-table-container {
+      display: none !important;
+    }
+
+    .consignado-payment-details-products-cards {
+      display: block !important;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+# Build
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Client/Business Data (EXCLUDE FROM BACKUP)
+notas-fiscais/
+driver impressora/
+**/src/data/*.json
+!in-love-barbara-main/src/data/brands.json
+!in-love-barbara-main/src/data/cashier_shifts.json
+!in-love-barbara-main/src/data/categories.json
+!in-love-barbara-main/src/data/clients.json
+!in-love-barbara-main/src/data/consignacao_items.json
+!in-love-barbara-main/src/data/consignacoes.json
+!in-love-barbara-main/src/data/consign_payments.json
+!in-love-barbara-main/src/data/nfe_imports.json
+!in-love-barbara-main/src/data/nfe_items.json
+!in-love-barbara-main/src/data/payments.json
+!in-love-barbara-main/src/data/products.json
+!in-love-barbara-main/src/data/sale_items.json
+!in-love-barbara-main/src/data/sales.json
+!in-love-barbara-main/src/data/scan_nonces.json
+!in-love-barbara-main/src/data/suppliers.json
+!in-love-barbara-main/src/data/users.json
+*.zip
+*.pfx
+*.p12
+*.pem
+*.key
+*.crt
+*.xml
+*.csv
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Temporary
+*.tmp
+*.temp
+.cache/

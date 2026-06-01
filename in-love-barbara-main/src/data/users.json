@@ -1,0 +1,20 @@
+[
+  {
+    "id": "66666666-6666-4666-8666-666666666661",
+    "name": "Admin Demo",
+    "role": "ADMIN",
+    "whatsapp": null,
+    "created_at": "2026-01-01T12:00:00.000Z",
+    "updated_at": "2026-01-01T12:00:00.000Z",
+    "active": true
+  },
+  {
+    "id": "66666666-6666-4666-8666-666666666662",
+    "name": "Colaborador Demo",
+    "role": "COLAB",
+    "whatsapp": null,
+    "created_at": "2026-01-01T12:00:00.000Z",
+    "updated_at": "2026-01-01T12:00:00.000Z",
+    "active": true
+  }
+]

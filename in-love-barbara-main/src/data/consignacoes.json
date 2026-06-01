@@ -1,0 +1,20 @@
+[
+  {
+    "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa1",
+    "codigo": "C-DEMO-001",
+    "client_id": "55555555-5555-4555-8555-555555555552",
+    "consultora_id": null,
+    "status": "ENTREGUE",
+    "commission_default_percent": 20,
+    "representative_name": "Consultora Demo",
+    "city": "Cidade Demo",
+    "data_entrega": "2026-01-04T12:00:00.000Z",
+    "data_prevista": "2026-01-20T12:00:00.000Z",
+    "data_finalizacao": null,
+    "desconto_percentual": 0,
+    "observacao": "Registro ficticio para demonstracao",
+    "created_at": "2026-01-04T12:00:00.000Z",
+    "updated_at": "2026-01-04T12:00:00.000Z",
+    "prazo_previsto": null
+  }
+]

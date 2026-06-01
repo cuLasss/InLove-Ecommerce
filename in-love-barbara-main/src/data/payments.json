@@ -1,0 +1,14 @@
+[
+  {
+    "id": "99999999-9999-4999-8999-999999999991",
+    "sale_id": "77777777-7777-4777-8777-777777777771",
+    "consignacao_id": null,
+    "amount_cents": 21980,
+    "method": "PIX",
+    "paid_at": "2026-01-02T10:35:00.000Z",
+    "created_at": "2026-01-02T10:35:00.000Z",
+    "received_by": "Admin Demo",
+    "notes": "Pagamento demo",
+    "collaborator_id": "66666666-6666-4666-8666-666666666661"
+  }
+]

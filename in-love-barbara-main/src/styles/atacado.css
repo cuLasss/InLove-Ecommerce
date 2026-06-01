@@ -1,0 +1,594 @@
+/* Atacado Styles - Sistema de Vendas em Lote */
+
+/* Gradientes personalizados para atacado */
+.atacado-gradient-primary {
+  background: linear-gradient(135deg, hsl(40 55% 42%), hsl(40 60% 38%));
+}
+
+.atacado-gradient-secondary {
+  background: linear-gradient(135deg, hsl(31 33% 97%), hsl(31 20% 89%));
+}
+
+.atacado-gradient-accent {
+  background: linear-gradient(135deg, hsl(33 44% 34%), hsl(33 50% 30%));
+}
+
+/* Sombras específicas para atacado */
+.atacado-shadow-soft {
+  box-shadow: 0 4px 16px hsl(40 55% 42% / 0.1);
+}
+
+.atacado-shadow-card {
+  box-shadow: 0 2px 8px hsl(0 0% 0% / 0.05);
+}
+
+.atacado-shadow-hover {
+  box-shadow: 0 8px 24px hsl(40 55% 42% / 0.15);
+}
+
+/* Animações suaves */
+.atacado-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.atacado-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px hsl(40 55% 42% / 0.15);
+}
+
+/* Cards com bordas coloridas */
+.atacado-card-green {
+  border-left: 4px solid hsl(142 76% 36%);
+}
+
+.atacado-card-blue {
+  border-left: 4px solid hsl(221 83% 53%);
+}
+
+.atacado-card-orange {
+  border-left: 4px solid hsl(25 95% 53%);
+}
+
+.atacado-card-purple {
+  border-left: 4px solid hsl(262 83% 58%);
+}
+
+.atacado-card-red {
+  border-left: 4px solid hsl(0 84% 60%);
+}
+
+/* Badges personalizados */
+.atacado-badge-success {
+  background-color: hsl(142 76% 36% / 0.1);
+  color: hsl(142 76% 36%);
+  border: 1px solid hsl(142 76% 36% / 0.2);
+}
+
+.atacado-badge-warning {
+  background-color: hsl(25 95% 53% / 0.1);
+  color: hsl(25 95% 53%);
+  border: 1px solid hsl(25 95% 53% / 0.2);
+}
+
+.atacado-badge-danger {
+  background-color: hsl(0 84% 60% / 0.1);
+  color: hsl(0 84% 60%);
+  border: 1px solid hsl(0 84% 60% / 0.2);
+}
+
+.atacado-badge-info {
+  background-color: hsl(221 83% 53% / 0.1);
+  color: hsl(221 83% 53%);
+  border: 1px solid hsl(221 83% 53% / 0.2);
+}
+
+/* Botões personalizados */
+.atacado-btn-primary {
+  background: linear-gradient(135deg, hsl(40 55% 42%), hsl(40 60% 38%));
+  color: hsl(31 33% 97%);
+  border: none;
+  box-shadow: 0 2px 8px hsl(40 55% 42% / 0.3);
+}
+
+.atacado-btn-primary:hover {
+  background: linear-gradient(135deg, hsl(40 60% 38%), hsl(40 65% 34%));
+  box-shadow: 0 4px 12px hsl(40 55% 42% / 0.4);
+  transform: translateY(-1px);
+}
+
+.atacado-btn-secondary {
+  background: hsl(31 20% 89%);
+  color: hsl(0 0% 17%);
+  border: 1px solid hsl(31 20% 89%);
+}
+
+.atacado-btn-secondary:hover {
+  background: hsl(31 20% 85%);
+  border-color: hsl(31 20% 85%);
+}
+
+/* Inputs personalizados */
+.atacado-input {
+  background: hsl(31 33% 97%);
+  border: 1px solid hsl(31 20% 89%);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.atacado-input:focus {
+  border-color: hsl(40 55% 42%);
+  box-shadow: 0 0 0 3px hsl(40 55% 42% / 0.1);
+  outline: none;
+}
+
+/* Tabs personalizados */
+.atacado-tabs-list {
+  background: hsl(31 20% 89% / 0.5);
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+}
+
+.atacado-tabs-trigger {
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.atacado-tabs-trigger[data-state="active"] {
+  background: hsl(31 33% 97%);
+  color: hsl(40 55% 42%);
+  box-shadow: 0 2px 4px hsl(0 0% 0% / 0.05);
+}
+
+/* Cards de métricas */
+.atacado-metric-card {
+  background: hsl(31 33% 97%);
+  border: 1px solid hsl(31 20% 89%);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px hsl(0 0% 0% / 0.05);
+  transition: all 0.3s ease;
+}
+
+.atacado-metric-card:hover {
+  box-shadow: 0 4px 16px hsl(40 55% 42% / 0.1);
+  transform: translateY(-2px);
+}
+
+/* Lista de vendas */
+.atacado-sale-item {
+  background: hsl(31 33% 97%);
+  border: 1px solid hsl(31 20% 89%);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.atacado-sale-item:hover {
+  background: hsl(31 20% 89% / 0.3);
+  border-color: hsl(40 55% 42% / 0.3);
+}
+
+/* Status indicators */
+.atacado-status-success {
+  background: hsl(142 76% 36% / 0.1);
+  color: hsl(142 76% 36%);
+  border: 1px solid hsl(142 76% 36% / 0.2);
+}
+
+.atacado-status-warning {
+  background: hsl(25 95% 53% / 0.1);
+  color: hsl(25 95% 53%);
+  border: 1px solid hsl(25 95% 53% / 0.2);
+}
+
+.atacado-status-danger {
+  background: hsl(0 84% 60% / 0.1);
+  color: hsl(0 84% 60%);
+  border: 1px solid hsl(0 84% 60% / 0.2);
+}
+
+/* Loading states */
+.atacado-loading {
+  background: linear-gradient(90deg, 
+    hsl(31 20% 89%) 25%, 
+    hsl(31 20% 85%) 50%, 
+    hsl(31 20% 89%) 75%
+  );
+  background-size: 200% 100%;
+  animation: atacado-shimmer 1.5s infinite;
+}
+
+@keyframes atacado-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .atacado-metric-card {
+    padding: 1rem;
+  }
+  
+  .atacado-sale-item {
+    padding: 0.75rem;
+  }
+  
+  .atacado-tabs-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Extra small devices: focus na aba Pendentes (300px a 528px) */
+@media (max-width: 528px) {
+  /* Escopo apenas dentro da aba Pendentes */
+  .atacado-pending .pending-card-item {
+    padding: 10px !important;
+    border-radius: 10px;
+  }
+
+  .atacado-pending .pending-card-item p,
+  .atacado-pending .pending-card-item span {
+    line-height: 1.25;
+  }
+
+  /* Reduzir o empilhamento vertical exagerado */
+  .atacado-pending .pending-card-item > .flex {
+    row-gap: 8px;
+  }
+
+  /* Área lateral (valor + ações) mais compacta */
+  .atacado-pending .pending-card-aside {
+    gap: 8px !important;
+  }
+
+  /* Ações em grid 2 colunas para melhor aproveitamento vertical */
+  .atacado-pending .pending-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px !important;
+    width: 100%;
+  }
+
+  .atacado-pending .pending-actions .btn,
+  .atacado-pending .pending-actions button {
+    min-height: 32px;
+  }
+
+  /* Título e badge ajustados */
+  .atacado-pending .card-title,
+  .atacado-pending h3,
+  .atacado-pending .CardTitle {
+    line-height: 1.2;
+  }
+}
+
+/* Modal Detalhes da Venda (ver) - responsividade 1070 -> 300 */
+@media (max-width: 1070px) {
+  .atacado-details-modal {
+    width: 92vw !important;
+    max-width: 1000px !important;
+  }
+}
+
+/* Histórico de Vendas - responsivo 950px para baixo */
+@media (max-width: 950px) {
+  .atacado-sales-history .history-item {
+    padding: 12px !important;
+  }
+  .atacado-sales-history .history-header-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    row-gap: 10px !important;
+  }
+  .atacado-sales-history .history-actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .atacado-sales-history .history-actions button {
+    min-width: 0 !important;
+  }
+}
+
+/* Evitar sobreposição entre valor e status de pagamento */
+@media (max-width: 810px) {
+  .atacado-sales-history .history-value-status-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    row-gap: 6px !important;
+  }
+  .atacado-sales-history .history-payment-status {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Evitar quebra do vendedor/cliente para fora do card */
+@media (max-width: 487px) {
+  .atacado-sales-history .history-client-seller-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    row-gap: 6px !important;
+  }
+  .atacado-sales-history .history-client,
+  .atacado-sales-history .history-seller {
+    width: 100% !important;
+    min-width: 0 !important;
+    word-break: break-word !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .atacado-sales-history .history-actions {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .atacado-details-modal {
+    width: 94vw !important;
+    max-width: 860px !important;
+  }
+  .atacado-details-modal .details-three-col {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  .atacado-details-modal .details-two-col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .atacado-details-modal {
+    width: 96vw !important;
+    max-width: 620px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .atacado-details-modal .details-three-col {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .atacado-details-modal {
+    width: 98vw !important;
+    max-width: 420px !important;
+  }
+}
+
+/* NF-e Generation modal: responsivo <= 600px */
+@media (max-width: 600px) {
+  .atacado-nfe-generation-modal {
+    width: 96vw !important;
+    max-width: 560px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow-x: hidden !important; /* evita scroll horizontal */
+    box-sizing: border-box;
+  }
+  .atacado-nfe-generation-modal .grid {
+    row-gap: 12px;
+  }
+  .atacado-nfe-generation-modal .md\:grid-cols-2,
+  .atacado-nfe-generation-modal .md\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .atacado-nfe-generation-modal button {
+    min-width: 0;
+    width: 100%;
+  }
+  .atacado-nfe-generation-modal code,
+  .atacado-nfe-generation-modal pre,
+  .atacado-nfe-generation-modal .code,
+  .atacado-nfe-generation-modal .inline-code {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    max-width: 100% !important;
+    display: inline-block;
+  }
+}
+
+/* NF-e Selection modal: responsivo <= 600px */
+@media (max-width: 600px) {
+  .atacado-nfe-selection-modal {
+    width: 96vw !important;
+    max-width: 560px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow-x: hidden !important; /* evita scroll horizontal */
+    box-sizing: border-box;
+  }
+  .atacado-nfe-selection-modal .max-h-\[55vh\] {
+    max-height: 60vh !important; /* um pouco mais de espaço útil em telas pequenas */
+  }
+  .atacado-nfe-selection-modal .flex {
+    row-gap: 8px;
+  }
+  .atacado-nfe-selection-modal .text-left,
+  .atacado-nfe-selection-modal .text-right {
+    text-align: left !important;
+  }
+  .atacado-nfe-selection-modal code,
+  .atacado-nfe-selection-modal pre {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    max-width: 100% !important;
+    display: inline-block;
+  }
+}
+
+/* Devolução de Produtos - 1024px -> 300px */
+@media (max-width: 1024px) {
+  .atacado-devolucao-modal {
+    width: 92vw !important;
+    max-width: 980px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .atacado-devolucao-modal {
+    width: 94vw !important;
+    max-width: 860px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .atacado-devolucao-modal {
+    width: 96vw !important;
+    max-width: 620px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box;
+  }
+  .atacado-devolucao-modal .devolucao-list {
+    max-height: 60vh !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .atacado-devolucao-modal .devolucao-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .atacado-devolucao-modal .devolucao-actions button {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .atacado-devolucao-modal {
+    width: 98vw !important;
+    max-width: 350px !important;
+  }
+}
+
+/* Medium-narrow: corrigir empilhamento e largura em ~769px */
+@media (max-width: 900px) {
+  .atacado-pending .pending-card-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .atacado-pending .pending-main-info {
+    width: 100% !important;
+  }
+  .atacado-pending .pending-card-aside {
+    width: 100% !important;
+    justify-content: initial;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .atacado-pending .pending-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+  .atacado-pending .pending-price {
+    text-align: left !important;
+    margin-bottom: 6px;
+  }
+  .atacado-pending .pending-mini-count {
+    white-space: nowrap;
+  }
+}
+
+/* Ajustes do modal de Adicionar Pagamento (evitar corte à direita e modal muito fino) */
+@media (max-width: 934px) {
+  .atacado-add-payment-modal {
+    width: 92vw !important;           /* dá mais espaço lateral que 95vw em telas médias */
+    max-width: 540px !important;      /* limita para não encostar nos lados */
+  }
+}
+
+@media (max-width: 520px) {
+  .atacado-add-payment-modal {
+    width: 96vw !important;           /* usa melhor a largura do viewport para não ficar fina */
+    max-width: 480px !important;      /* mantém limite razoável */
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  .atacado-add-payment-modal .add-payment-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .atacado-add-payment-modal .add-payment-actions button {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 367px) {
+  .atacado-add-payment-modal {
+    width: 98vw !important;           /* quase full, mas ainda com respiro */
+    max-width: 360px !important;      /* evita overflow horizontal */
+    border-radius: 0.9rem !important;
+  }
+  .atacado-add-payment-modal .add-payment-actions {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Nos menores devices, priorize duas linhas compactas no cabeçalho de cada item */
+  .atacado-pending .pending-card-item .flex {
+    row-gap: 6px;
+  }
+
+  .atacado-pending .pending-actions {
+    grid-template-columns: 1fr; /* botões em uma coluna para evitar quebra forçada */
+  }
+}
+
+/* Dark mode support */
+.dark .atacado-gradient-primary {
+  background: linear-gradient(135deg, hsl(40 55% 52%), hsl(40 60% 48%));
+}
+
+.dark .atacado-gradient-secondary {
+  background: linear-gradient(135deg, hsl(31 33% 7%), hsl(31 20% 11%));
+}
+
+.dark .atacado-metric-card {
+  background: hsl(222.2 84% 4.9%);
+  border-color: hsl(217.2 32.6% 17.5%);
+}
+
+.dark .atacado-sale-item {
+  background: hsl(222.2 84% 4.9%);
+  border-color: hsl(217.2 32.6% 17.5%);
+}
+
+.dark .atacado-sale-item:hover {
+  background: hsl(217.2 32.6% 17.5% / 0.3);
+  border-color: hsl(40 55% 52% / 0.3);
+}
+
+/* Print styles */
+@media print {
+  .atacado-metric-card,
+  .atacado-sale-item {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .atacado-btn-primary,
+  .atacado-btn-secondary {
+    background: none !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+}
+
+

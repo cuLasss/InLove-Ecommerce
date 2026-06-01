@@ -1,0 +1,19 @@
+[
+  {
+    "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+    "consignacao_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa1",
+    "product_id": "44444444-4444-4444-8444-444444444441",
+    "qty": 3,
+    "unit_price_cents": 8990,
+    "desconto_percentual": 0,
+    "status": "delivered",
+    "created_at": "2026-01-04T12:00:00.000Z",
+    "updated_at": "2026-01-04T12:00:00.000Z",
+    "commission_percent": 20,
+    "qtd_enviada": 3,
+    "qtd_vendida": 0,
+    "qtd_devolvida": 0,
+    "qtd_perda": 0,
+    "preco_base_cents": 8990
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "33333333-3333-4333-8333-333333333331",
+    "name": "Fornecedor Demo A",
+    "whatsapp": null,
+    "created_at": "2026-01-01T12:00:00.000Z"
+  },
+  {
+    "id": "33333333-3333-4333-8333-333333333332",
+    "name": "Fornecedor Demo B",
+    "whatsapp": null,
+    "created_at": "2026-01-01T12:00:00.000Z"
+  }
+]
